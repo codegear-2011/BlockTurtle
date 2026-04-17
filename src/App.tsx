@@ -657,7 +657,7 @@ export default function App() {
                 className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all ${editorMode === 'python' ? 'bg-white shadow-sm text-blue-600 font-bold' : 'text-gray-400 hover:text-gray-600 font-medium'}`}
               >
                 <Terminal size={16} />
-                <span className="text-sm">Python</span>
+                <span className="text-sm">TurtleScript</span>
               </button>
             </div>
 
@@ -666,11 +666,11 @@ export default function App() {
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-2 px-3 py-1.5 hover:bg-gray-50 rounded-lg transition-colors cursor-pointer text-gray-400">
                 <Palette size={16} />
-                <span className="text-sm font-medium">Costumes</span>
+                <span className="text-sm font-medium"> </span>
               </div>
               <div className="flex items-center gap-2 px-3 py-1.5 hover:bg-gray-50 rounded-lg transition-colors cursor-pointer text-gray-400">
                 <Zap size={16} />
-                <span className="text-sm font-medium">Sounds</span>
+                <span className="text-sm font-medium"> </span>
               </div>
             </div>
           </div>
@@ -685,9 +685,9 @@ export default function App() {
                 <div className="flex items-center justify-between px-6 py-2 bg-[#2d2d2d] border-b border-[#3d3d3d]">
                   <div className="flex items-center gap-2 text-[#8b8b8b]">
                     <Terminal size={14} />
-                    <span className="text-[10px] font-bold uppercase tracking-widest">main.py</span>
+                    <span className="text-[10px] font-bold uppercase tracking-widest">script.tsp</span>
                   </div>
-                  <div className="text-[10px] text-[#555] font-mono">Python 3.10</div>
+                  <div className="text-[10px] text-[#555] font-mono">TurtleScript v1.0</div>
                 </div>
                 <div className="flex-1 relative">
                   <Editor
@@ -734,7 +734,7 @@ export default function App() {
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-2">
                     <Box size={18} className="text-blue-600" />
-                    <h2 className="font-bold text-sm tracking-wide text-gray-600 uppercase">Stage View</h2>
+                    <h2 className="font-bold text-sm tracking-wide text-gray-600 uppercase">Output</h2>
                   </div>
                   <button 
                     onClick={() => {
@@ -784,7 +784,7 @@ export default function App() {
                         className="absolute inset-0 z-40 bg-white/80 p-6 overflow-auto"
                       >
                         <div className="flex items-center justify-between mb-4">
-                          <h3 className="text-xs font-bold uppercase tracking-wider text-gray-400">Compiled JavaScript</h3>
+                          <h3 className="text-xs font-bold uppercase tracking-wider text-gray-400">Compiled</h3>
                           <button onClick={() => setShowCode(false)} className="text-gray-400 hover:text-gray-900">
                             <Square size={14} className="rotate-45" />
                           </button>
