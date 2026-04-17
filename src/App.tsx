@@ -323,6 +323,7 @@ export default function App() {
     '# turn_right(90)\n' +
     '# say("Hello from Python!")\n' +
     '# wait(1)\n\n' +
+    'pendown()\n' +
     'for i in range(4):\n' +
     '    move(100)\n' +
     '    turnright(90)\n' +
