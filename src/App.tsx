@@ -59,7 +59,7 @@ const transpilePythonToJs = (pythonCode: string): string => {
 
   lines.forEach(line => {
     const trimmedLine = line.trim();
-    if (!trimmedLine || trimmedLine.startsWith('@')) return;
+    if (!trimmedLine || trimmedLine.startsWith('#')) return;
 
     // Handle indentation closing
     const currentIndent = line.search(/\S/);
@@ -72,7 +72,7 @@ const transpilePythonToJs = (pythonCode: string): string => {
 
     // Handle Control Structures
     if (trimmedLine.startsWith('for ') && trimmedLine.endsWith(':')) {
-      const match = trimmedLine.match(/for (\w+) in\((\d+)\):/);
+      const match = trimmedLine.match(/for (\w+) in range\((\d+)\):/);
       if (match) {
         const [, varName, count] = match;
         jsCode += `for (let ${varName} = 0; ${varName} < ${count}; ${varName}++) {\n`;
@@ -324,8 +324,8 @@ export default function App() {
     '# say("Hello from Python!")\n' +
     '# wait(1)\n\n' +
     'for i in range(4):\n' +
-    '    move_steps(100)\n' +
-    '    turn_right(90)\n' +
+    '    move(100)\n' +
+    '    turnright(90)\n' +
     '    wait(0.5)\n' +
     'say("Done!")'
   );
@@ -582,8 +582,8 @@ export default function App() {
             <Layout size={24} />
           </div>
           <div>
-            <h1 className="font-bold text-lg leading-tight">BlocklyScratch</h1>
-            <p className="text-xs text-gray-500 font-medium tracking-wide uppercase">Professional Edition</p>
+            <h1 className="font-bold text-lg leading-tight">BlockTurtle</h1>
+            <p className="text-xs text-gray-500 font-medium tracking-wide uppercase">A Enhanced Edition of MSWLogo</p>
           </div>
         </div>
 
