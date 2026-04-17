@@ -46,20 +46,20 @@ const transpilePythonToJs = (pythonCode: string): string => {
   let indentLevel = 0;
 
   const mapping: Record<string, string> = {
-    'move_steps': 'moveSteps',
-    'turn_right': 'turnRight',
-    'turn_left': 'turnLeft',
-    'say': 'say',
+    'move': 'moveSteps',
+    'turnright': 'turnRight',
+    'turnleft': 'turnLeft',
+    'speak': 'say',
     'wait': 'await wait',
-    'pen_down': 'penDown',
-    'pen_up': 'penUp',
-    'pen_clear': 'penClear',
-    'set_pen_color': 'setPenColor',
+    'pendown': 'penDown',
+    'penup': 'penUp',
+    'penclear': 'penClear',
+    'setpencolor': 'setPenColor',
   };
 
   lines.forEach(line => {
     const trimmedLine = line.trim();
-    if (!trimmedLine || trimmedLine.startsWith('#')) return;
+    if (!trimmedLine || trimmedLine.startsWith('@')) return;
 
     // Handle indentation closing
     const currentIndent = line.search(/\S/);
@@ -72,7 +72,7 @@ const transpilePythonToJs = (pythonCode: string): string => {
 
     // Handle Control Structures
     if (trimmedLine.startsWith('for ') && trimmedLine.endsWith(':')) {
-      const match = trimmedLine.match(/for (\w+) in range\((\d+)\):/);
+      const match = trimmedLine.match(/for (\w+) in\((\d+)\):/);
       if (match) {
         const [, varName, count] = match;
         jsCode += `for (let ${varName} = 0; ${varName} < ${count}; ${varName}++) {\n`;
